@@ -1,1 +1,93 @@
-<p>signup works!</p>
+<div  class="formCls col d-flex justify-content-center">
+    <div class="card text-center" style="width: 25rem;">
+        <div class="card-body">
+            <img src="../../assets/instagram-logo.png" width="70%" class="justify-content-center">
+            <h2>Sign up to see photos and videos from your friends.</h2>
+            <button class="btn btn-primary btn-block">
+                <span><img src="../../assets/facebook-logo.png" width="17rem"></span>
+                <span> &nbsp; Log in with Facebook</span>
+            </button>
+            <br>
+            <div style="display: flex;">
+                <hr style="width: 30%;">
+                <p>OR</p>
+                <hr style="width: 30%;">
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="margin: 0px 30px auto 30px;; padding: 10px;">
+                <div class="form-group">
+                    <input type="text" [formControlName]="'mobileOrEmail'" placeholder="Mobile Number or Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobileOrEmail.errors }" />
+                    <div *ngIf="submitted && f.mobileOrEmail.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobileOrEmail.errors.required">Mobile Number or Email is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" [formControlName]="'fullName'" placeholder="Full Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                        <div *ngIf="f.fullName.errors.required">Full Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" [formControlName]="'username'" placeholder="Phone number, username, or email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" [formControlName]="'password'" placeholder="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                <span>People who use our service may have uploaded your contact information to Instagram.<a href="#">Learn More</a></span>
+                <br><br>
+                <span>By signing up, you agree to our <a href="#"> Terms , Privacy Policy</a> and <a href="#">Cookies Policy .</a></span>
+                </div>
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary btn-block">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Sign Up
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="formCls col d-flex justify-content-center">
+    <div class="card text-center" style="width: 25rem; padding: 20px">
+        <span>Have an account? <a [routerLink]="['/']">Log in</a></span>
+    </div>
+    </div>
+    <br>
+    <div class="formCls d-flex flex-column align-items-center">
+        <div>Get the app.</div>
+        <br>
+        <div><img src="../../assets/googleplay.png" width="170rem">&nbsp;<span><img src="../../assets/microsoft.png" width="150rem"></span></div> 
+    </div>
+    <br>
+    <footer>
+        <div class="footer">
+            <a>&nbsp;&nbsp; Meta</a>
+            <a>&nbsp;&nbsp; About</a>
+            <a>&nbsp;&nbsp; Blog</a>
+            <a>&nbsp;&nbsp; Jobs</a>
+            <a>&nbsp;&nbsp; API</a>
+            <a>&nbsp;&nbsp; Privacy</a>
+            <a>&nbsp;&nbsp; Terms</a>
+            <a>&nbsp;&nbsp; Top Accounts</a>
+            <a>&nbsp;&nbsp; Locations</a>
+            <a>&nbsp;&nbsp; Instagram Lite</a>
+            <a>&nbsp;&nbsp; Contact Uploading & Non-Users</a>
+            <a>&nbsp;&nbsp; About</a>
+            <a>&nbsp;&nbsp; Meta Verified</a>
+        </div>
+        <div class="footer">
+            <select data-placeholder="Choose a Language...">
+                <option value="AF">English</option>
+                <option value="SQ">Hindi</option>
+            </select>
+            <span>&#169; 2023 Instagram from Meta</span>
+        </div>
+    </footer>
+    
+    

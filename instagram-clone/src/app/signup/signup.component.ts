@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  loginForm: FormGroup | any;
+  loading = false;
+  submitted = false;
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+
+  ) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      mobileOrEmail: ['', Validators.required],
+      fullName: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required]
   }
+  )}
+  get f() { return this.loginForm.controls; }
+  onSubmit() {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+        return;
+    }
+
+    this.loading = true;
+}
 
 }
